@@ -26881,7 +26881,7 @@
 	      React.createElement(
 	        "p",
 	        null,
-	        "This is a Weather application build on React. I have built this for thr complete react web App Developer cource"
+	        "This is a Weather application build on React. I(NITISH KUMAR) have built this for the complete react web App Developer cource"
 	      ),
 	      React.createElement(
 	        "p",
