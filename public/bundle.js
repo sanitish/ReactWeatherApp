@@ -25722,7 +25722,8 @@
 	  render: function render() {
 	    var _props = this.props,
 	        temp = _props.temp,
-	        location = _props.location;
+	        location = _props.location,
+	        name = _props.name;
 
 
 	    return React.createElement(
@@ -25732,7 +25733,7 @@
 	      temp,
 	      ' Celsius! in ',
 	      location,
-	      '.'
+	      ' Samzhi SURUCHI Maidam .'
 	    );
 	  }
 	});
