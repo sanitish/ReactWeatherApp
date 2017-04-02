@@ -25733,7 +25733,7 @@
 	      temp,
 	      ' Celsius! in ',
 	      location,
-	      ' Samzhi SURUCHI Maidam .'
+	      '.'
 	    );
 	  }
 	});
@@ -26862,26 +26862,55 @@
 /* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var About = React.createClass({
-	  displayName: 'About',
+	  displayName: "About",
 
 	  render: function render() {
 	    return React.createElement(
-	      'div',
+	      "div",
 	      null,
 	      React.createElement(
-	        'h3',
-	        null,
-	        'About Component'
+	        "h1",
+	        { className: "text-center" },
+	        "About Component"
 	      ),
 	      React.createElement(
-	        'p',
+	        "p",
 	        null,
-	        'its About you my boy!'
+	        "This is a Weather application build on React. I have built this for thr complete react web App Developer cource"
+	      ),
+	      React.createElement(
+	        "p",
+	        null,
+	        "Here are some tools I used:"
+	      ),
+	      React.createElement(
+	        "ul",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "https://faccebook.github.io/react" },
+	            "React"
+	          ),
+	          " - I was a the java script frame work used."
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "http://openweathermap.org" },
+	            "Open weather map"
+	          ),
+	          " - I used Open weather map to search for weather data by city name."
+	        )
 	      )
 	    );
 	  }
