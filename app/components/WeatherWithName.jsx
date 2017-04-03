@@ -3,7 +3,7 @@ var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 var openWeatherMap = require('openWeatherMap');
 
-var Weather = React.createClass({
+var WeatherWithName = React.createClass({
   getInitialState: function () {
     return {
       isLoading: false
@@ -36,7 +36,7 @@ var Weather = React.createClass({
     if (location && location.length > 0) {
        this.handleSearch(location);
        window.location.hash = '#/';
-       
+
     }
   },
   componentWillReceiveProps: function (newProps) {
@@ -48,6 +48,7 @@ var Weather = React.createClass({
     }
   },
   render: function () {
+
     var {isLoading, temp, location} = this.state;
 
     function renderMessage () {
@@ -60,12 +61,20 @@ var Weather = React.createClass({
 
     return (
       <div>
-        <h1 className="text-center page-title">Get Weather</h1>
+      <h1 className="text-center page-title">Get Weather with Greetings!</h1>
+      <form onSubmit={this.onFormSubmit}>
+        <input type="search" ref="location" placeholder="enter your name"/>
+      </form>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
       </div>
+
+
+
+
     )
   }
+
 });
 
-module.exports = Weather;
+module.exports = WeatherWithName;
