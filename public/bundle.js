@@ -25594,12 +25594,12 @@
 	            React.createElement(
 	              'li',
 	              null,
-	              React.createElement('input', { type: 'search', ref: 'search', placeholder: 'enter your city name' })
+	              React.createElement('input', { type: 'search', ref: 'search', placeholder: 'search weather by city name' })
 	            ),
 	            React.createElement(
 	              'li',
 	              null,
-	              React.createElement('input', { type: 'submit', className: 'button', value: 'submit' })
+	              React.createElement('input', { type: 'submit', className: 'button', value: 'get weather' })
 	            )
 	          )
 	        )
