@@ -16,8 +16,8 @@ require('style!css!applicationStyles')
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <Route path="about" component={About}/>
       <Route path="WeatherWithName" component={WeatherWithName}/>
+      <Route path="about" component={About}/>
       <IndexRoute component={Weather}/>
     </Route>
   </Router>,

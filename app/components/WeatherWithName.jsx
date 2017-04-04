@@ -5,9 +5,10 @@ var openWeatherMap = require('openWeatherMap');
 
 var WeatherWithName = React.createClass({
   getInitialState: function () {
-    return {
-      isLoading: false
-    }
+    return ({
+      isLoading: false,
+      name: this.props.name
+    });
   },
   handleSearch: function (location) {
     var that = this;
@@ -18,8 +19,7 @@ var WeatherWithName = React.createClass({
       location: undefined,
       temp: undefined
     });
-
-    openWeatherMap.getTemp(location).then(function (temp) {
+      openWeatherMap.getTemp(location).then function (temp) {
       that.setState({
         location: location,
         temp: temp,
@@ -30,6 +30,16 @@ var WeatherWithName = React.createClass({
       alert(errorMessage);
     });
   },
+  onFormSubmit: function(e) {
+      e.preventDefault();
+
+      var name = this.refs.name.value;
+
+      if (name.length > 0) {
+          this.refs.name.value = '';
+
+      }
+    },
   componentDidMount: function () {
     var location = this.props.location.query.location;
 
@@ -61,9 +71,9 @@ var WeatherWithName = React.createClass({
 
     return (
       <div>
-      <h1 className="text-center page-title">Get Weather with Greetings!</h1>
+      <h2 className="text-center page-title">Get Weather with Greetings!</h2>
       <form onSubmit={this.onFormSubmit}>
-        <input type="search" ref="location" placeholder="enter your name"/>
+        <input type="text" ref="name" placeholder="enter your name"/>
       </form>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}

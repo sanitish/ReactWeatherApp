@@ -106,7 +106,7 @@
 	var Main = __webpack_require__(229);
 	var Weather = __webpack_require__(231);
 	var About = __webpack_require__(252);
-	var WeatherWithName = __webpack_require__(253);
+	var WeatherWithName = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"WeatherWithName\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	//load foundation
 	__webpack_require__(254);
@@ -121,8 +121,8 @@
 	  React.createElement(
 	    Route,
 	    { path: '/', component: Main },
-	    React.createElement(Route, { path: 'about', component: About }),
 	    React.createElement(Route, { path: 'WeatherWithName', component: WeatherWithName }),
+	    React.createElement(Route, { path: 'about', component: About }),
 	    React.createElement(IndexRoute, { component: Weather })
 	  )
 	), document.getElementById('app'));
@@ -25567,8 +25567,8 @@
 	            null,
 	            React.createElement(
 	              Link,
-	              { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	              'About'
+	              { to: '/WeatherWithName', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	              'WeatherWithName'
 	            )
 	          ),
 	          React.createElement(
@@ -25576,8 +25576,8 @@
 	            null,
 	            React.createElement(
 	              Link,
-	              { to: '/WeatherWithName', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	              'WeatherWithName'
+	              { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	              'About'
 	            )
 	          )
 	        )
@@ -25594,7 +25594,7 @@
 	            React.createElement(
 	              'li',
 	              null,
-	              React.createElement('input', { type: 'search', ref: 'search', placeholder: 'search weather by city name' })
+	              React.createElement('input', { type: 'search', placeholder: 'search weather by city name', ref: 'search' })
 	            ),
 	            React.createElement(
 	              'li',
@@ -25767,6 +25767,8 @@
 	      temp,
 	      " Celsius! in ",
 	      location,
+	      " ",
+	      name,
 	      "."
 	    );
 	  }
@@ -26915,7 +26917,7 @@
 	      React.createElement(
 	        "p",
 	        null,
-	        "This is a Weather application build on React. I(NITISH KUMAR) have built this for the complete react web App Developer cource"
+	        "This is a Weather application build on React. I (NITISH KUMAR) have built this for the complete react web App Developer cource"
 	      ),
 	      React.createElement(
 	        "p",
@@ -26953,103 +26955,7 @@
 	module.exports = About;
 
 /***/ },
-/* 253 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(8);
-	var WeatherForm = __webpack_require__(232);
-	var WeatherMessage = __webpack_require__(233);
-	var openWeatherMap = __webpack_require__(234);
-
-	var WeatherWithName = React.createClass({
-	  displayName: 'WeatherWithName',
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      isLoading: false
-	    };
-	  },
-	  handleSearch: function handleSearch(location) {
-	    var that = this;
-
-	    this.setState({
-	      isLoading: true,
-	      errorMessage: undefined,
-	      location: undefined,
-	      temp: undefined
-	    });
-
-	    openWeatherMap.getTemp(location).then(function (temp) {
-	      that.setState({
-	        location: location,
-	        temp: temp,
-	        isLoading: false
-	      });
-	    }, function (errorMessage) {
-	      that.setState({ isLoading: false });
-	      alert(errorMessage);
-	    });
-	  },
-	  componentDidMount: function componentDidMount() {
-	    var location = this.props.location.query.location;
-
-	    if (location && location.length > 0) {
-	      this.handleSearch(location);
-	      window.location.hash = '#/';
-	    }
-	  },
-	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
-	    var location = newProps.location.query.location;
-
-	    if (location && location.length > 0) {
-	      this.handleSearch(location);
-	      window.location.hash = '#/';
-	    }
-	  },
-	  render: function render() {
-	    var _state = this.state,
-	        isLoading = _state.isLoading,
-	        temp = _state.temp,
-	        location = _state.location;
-
-
-	    function renderMessage() {
-	      if (isLoading) {
-	        return React.createElement(
-	          'h3',
-	          { className: 'text-center' },
-	          'Fetching weather...'
-	        );
-	      } else if (temp && location) {
-	        return React.createElement(WeatherMessage, { temp: temp, location: location });
-	      }
-	    }
-
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'h1',
-	        { className: 'text-center page-title' },
-	        'Get Weather with Greetings!'
-	      ),
-	      React.createElement(
-	        'form',
-	        { onSubmit: this.onFormSubmit },
-	        React.createElement('input', { type: 'search', ref: 'location', placeholder: 'enter your name' })
-	      ),
-	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
-	      renderMessage()
-	    );
-	  }
-
-	});
-
-	module.exports = WeatherWithName;
-
-/***/ },
+/* 253 */,
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
